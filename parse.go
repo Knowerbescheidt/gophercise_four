@@ -20,6 +20,7 @@ func Parse(r io.Reader) ([]Link, error) {
 		return nil, err
 	}
 	dfs(doc, "")
+	fmt.Println("Spannend")
 	return nil, nil
 }
 
