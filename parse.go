@@ -20,10 +20,12 @@ func Parse(r io.Reader) ([]Link, error) {
 		return nil, err
 	}
 	nodes := linkNodes(doc)
+	var links []Link
 	for _, node := range nodes {
 		fmt.Println(node)
+		links = append(links, Link{node.Data, node.Type})
 	}
-	return nil, nil
+	return links, nil
 }
 
 func linkNodes(n *html.Node) []*html.Node {
