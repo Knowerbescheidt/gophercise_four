@@ -32,8 +32,9 @@ func Parse(r io.Reader) ([]Link, error) {
 func buildLink(n *html.Node) Link {
 	var ret Link
 	for _, attr := range n.Attr {
-		if attr.Key =="href"
-		ret.Href = attr.Val
+		if attr.Key == "href" {
+			ret.Href = attr.Val
+		}
 	}
 	ret.Text = "PArse the Text"
 	return ret
