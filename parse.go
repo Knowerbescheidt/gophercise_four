@@ -3,6 +3,7 @@ package link
 import (
 	"fmt"
 	"io"
+	"strings"
 
 	"golang.org/x/net/html"
 )
@@ -36,8 +37,15 @@ func buildLink(n *html.Node) Link {
 			ret.Href = attr.Val
 		}
 	}
-	ret.Text = extractText(n)
+	text := extractText(n)
+	text = prepText(text)
 	return ret
+}
+
+func prepText(text string) string {
+	s := strings.Fields(text)
+	t := strings.Join(s, " ")
+	return t
 }
 
 func extractText(n *html.Node) string {
