@@ -38,7 +38,7 @@ func buildLink(n *html.Node) Link {
 		}
 	}
 	text := extractText(n)
-	text = prepText(text)
+	ret.Text = prepText(text)
 	return ret
 }
 
